@@ -30,9 +30,6 @@ GEM
       dm-core (~> 1.2.0)
     dm-migrations (1.2.0)
       dm-core (~> 1.2.0)
-    dm-postgres-adapter (1.2.0)
-      dm-do-adapter (~> 1.2.0)
-      do_postgres (~> 0.10.6)
     dm-serializer (1.2.2)
       dm-core (~> 1.2.0)
       fastercsv (~> 1.5)
@@ -56,8 +53,6 @@ GEM
       uuidtools (~> 2.1)
     dm-validations (1.2.0)
       dm-core (~> 1.2.0)
-    do_postgres (0.10.14)
-      data_objects (= 0.10.14)
     do_sqlite3 (0.10.14)
       data_objects (= 0.10.14)
     eventmachine (1.0.3)
@@ -65,7 +60,6 @@ GEM
     json (1.8.1)
     json_pure (1.8.1)
     multi_json (1.9.2)
-    pg (0.17.1)
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
@@ -96,10 +90,8 @@ PLATFORMS
 
 DEPENDENCIES
   data_mapper
-  dm-postgres-adapter
   dm-sqlite-adapter
   do_sqlite3
-  pg
   sass
   sinatra
   sinatra-contrib

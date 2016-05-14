@@ -1,0 +1,6 @@
+.bundle/
+.sass-cache/
+database.db
+pegjscalc_herzog
+salida
+lib/pl0node.js

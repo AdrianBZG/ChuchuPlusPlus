@@ -1,0 +1,8 @@
+{
+  while (a<4) do { 
+    a = init();
+    b = fact(4);
+    c = chuchu(a*b, fact(3))
+  };
+  return c;;;
+}

@@ -1,0 +1,16 @@
+const A = 4, 
+      B = 30,
+      A = 6;
+var b, n;
+function fact(n);
+  var t;
+  function tutu(a,b,c);
+    return 4;
+  { 
+    if n <= 1 then return 1 
+    else return n*fact(n-1);
+  };
+{
+  n = 9;
+  b = fact(n);
+}

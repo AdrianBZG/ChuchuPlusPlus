@@ -1,0 +1,23 @@
+const A = 4, 
+      B = 30;
+var b, m;
+
+function fact(n);
+  var t;
+  function tutu(a,b,c);
+    return 4;
+{ 
+  if n <= 1 then return 1 
+  else return n*fact(n-1);
+};
+
+function chuchu(x,y);
+const Z = 4;
+var b;
+{
+  b = 5;
+};
+{
+  n = 9;
+  b = fact(n);
+}

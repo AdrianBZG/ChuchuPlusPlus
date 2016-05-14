@@ -4,7 +4,7 @@ $(document).ready(function() {
       var result = pl0.parse($('#input').val());
       $('#output').html(JSON.stringify(result,undefined,2));
     } catch (e) {
-      $('#output').html('<div class="error"><pre>\n' + String(e) + '\n</pre></div>');
+      $('#output').html('<div class="error"><pre>\n' + JSON.stringify(e, null,4) + '\n</pre></div>');
     }
   });
 

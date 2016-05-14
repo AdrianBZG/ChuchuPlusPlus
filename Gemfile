@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+#ruby '2.0.0'
 
 gem "sinatra"
 gem "sinatra-contrib"
@@ -12,7 +12,7 @@ group :development do
   gem 'do_sqlite3'
 end
 
-group :production do
-  gem 'pg'
-  gem 'dm-postgres-adapter' 
-end
+# group :production do
+#   gem 'pg'
+#   gem 'dm-postgres-adapter' 
+# end
