@@ -1,0 +1,83 @@
+body {
+  font-family: Helvetica, Arial, sans-serif; }
+
+h1 {
+  color: #990033;
+  font: 32px/1 Helvetica, Arial, sans-serif; }
+
+header h1 {
+  font-size: 40px;
+  line-height: 80px;
+  background: transparent url(/images/logo.png) 0 0 no-repeat;
+  background-size: 5% 70%;
+  padding-left: 84px; }
+
+nav {
+  font-weight: bold; }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #444444;
+    overflow: hidden; }
+  nav li {
+    float: left; }
+  nav a {
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    background: #444444;
+    color: white; }
+    nav a:hover {
+      background: #111111; }
+
+p {
+  font: 13px/1.4 Helvetica, Arial, sans-serif; }
+
+label {
+  display: block; }
+
+nav a.current {
+  background: #c4c4c4; }
+
+.flash {
+  width: 600px;
+  padding: 5px;
+  font-weight: bold;
+  margin: 20px;
+  background: #ffccdd;
+  color: #990033;
+  border: 1px solid #990033; }
+
+#like p {
+  font-weight: bold;
+  color: #990033; }
+#like input {
+  background: #990033 url(/images/like.png) 0 2px no-repeat;
+  border: #660022 1px solid;
+  height: 28px;
+  padding-left: 24px; }
+
+.loadfile {
+  background-color: #444444;
+  border-radius: 5px;
+  border: 2px solid #DDD;
+  line-height: 80px;
+  height: 20px;
+  padding: 5px; }
+  .loadfile button, .loadfile input {
+    color: #444444;
+    float: left;
+    list-style: none;
+    display: inline;
+    text-align: center;
+    font-weight: bolder; }
+  .loadfile button:hover, .loadfile input:hover {
+    cursor: pointer; }
+
+.error {
+  color: white;
+  background-color: #990033; }
+
+.centered {
+  text-align: center; }
