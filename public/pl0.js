@@ -97,7 +97,25 @@ pl0 = (function() {
         peg$c10 = function(a) {
                      return { type: 'RETURN', children: a? [a] : [] };
                    },
-        peg$c11 = function(i, e) { return {type: '=', left: i, right: e}; },
+        peg$c11 = function(i, op, e) {
+                 var right;
+
+                 if (op) {
+                    right = {
+                       type: op,
+                       left: i,
+                       right: e
+                     }
+                 }
+                 else {
+                    right = e;
+                 }
+                 return {
+                    type: 'ASSIGN',
+                    left: i,
+                    right: right
+                  };
+              },
         peg$c12 = function(l, op, r) { return { type: op, left: l, right: r} },
         peg$c13 = function(elem, elemN) {
           let t = [];
@@ -133,7 +151,7 @@ pl0 = (function() {
               },
         peg$c19 = function(v, m) {
               return {
-                type: '%',
+                type: 'MODULUS',
                 value: v,
                 mod: m
                 }
@@ -975,18 +993,27 @@ pl0 = (function() {
     }
 
     function peg$parseassign() {
-      var s0, s1, s2, s3;
+      var s0, s1, s2, s3, s4;
 
       s0 = peg$currPos;
       s1 = peg$parseID();
       if (s1 !== peg$FAILED) {
-        s2 = peg$parseASSIGN();
+        s2 = peg$parseop();
+        if (s2 === peg$FAILED) {
+          s2 = null;
+        }
         if (s2 !== peg$FAILED) {
-          s3 = peg$parsecond();
+          s3 = peg$parseASSIGN();
           if (s3 !== peg$FAILED) {
-            peg$savedPos = s0;
-            s1 = peg$c11(s1, s3);
-            s0 = s1;
+            s4 = peg$parsecond();
+            if (s4 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s1 = peg$c11(s1, s2, s4);
+              s0 = s1;
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
           } else {
             peg$currPos = s0;
             s0 = peg$FAILED;
@@ -1452,6 +1479,23 @@ pl0 = (function() {
               peg$currPos = s0;
               s0 = peg$FAILED;
             }
+          }
+        }
+      }
+
+      return s0;
+    }
+
+    function peg$parseop() {
+      var s0;
+
+      s0 = peg$parseADD();
+      if (s0 === peg$FAILED) {
+        s0 = peg$parseMUL();
+        if (s0 === peg$FAILED) {
+          s0 = peg$parsePOW();
+          if (s0 === peg$FAILED) {
+            s0 = peg$parseSQRT();
           }
         }
       }
