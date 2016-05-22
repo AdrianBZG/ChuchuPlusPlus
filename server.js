@@ -21,6 +21,10 @@ app.get('/', (request, response) => {
   response.render ('index', { title: "Chuchu++"} );
 });
 
+app.get('/grammar', (request, response) => {
+  response.render ('grammar', { title: "Chuchu++"} );
+});
+
 app.get('/parse', (request, response) => {
 	var code = request.query.data;
 	try {
@@ -30,9 +34,7 @@ app.get('/parse', (request, response) => {
 		response.send ({ "result": r, "status": 1});
 	} catch (e) {
 		// Catch the error and show the information about it (Usually from the semantic phase)
-		//console.log(`Error at line ${e.startLine}, column ${e.startColumn}. Message: ${e.message}`);
 		response.send ({ "result": e, "status": 0});
-		//response.send ({ "result": '<div class="error"><pre>\n' + JSON.stringify(e, null,4) + '\n</pre></div>'});
 	}
 });
 
