@@ -29,12 +29,17 @@ app.get('/parse', (request, response) => {
 	var code = request.query.data;
 	try {
 		var r = PEG.parse(code);	// Syntactic phase
-		//semanticPhase(r);			// Semantic phase
+		try {
+			semanticPhase(r);			// Semantic phase
+		} catch (e) {
+			// Catch a semantic error
+			response.send ({ "result": e, "status": 2});
+		}
 		//console.log(util.inspect(r, {depth: null}));	// Show tree
-		response.send ({ "result": r, "status": 1});
+		response.send ({ "result": r, "status": 0});
 	} catch (e) {
-		// Catch the error and show the information about it (Usually from the semantic phase)
-		response.send ({ "result": e, "status": 0});
+		// Catch a syntactic error
+		response.send ({ "result": e, "status": 1});
 	}
 });
 
