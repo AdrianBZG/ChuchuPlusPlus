@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var myCodeMirror = CodeMirror.fromTextArea(input);
-  myCodeMirror.setSize(1700, 500);
+  myCodeMirror.setSize(1000, 500);
   myCodeMirror.setValue("");
   
   $('#parse').click(function() {
