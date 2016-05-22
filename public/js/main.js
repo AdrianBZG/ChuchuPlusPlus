@@ -9,11 +9,11 @@ $(document).ready(function() {
           { data: value },
           function (data) {
 			if(data.status == 0) {
-				$("#output").html('<b>Generated Tree (JSON format):</b><br><textarea rows="30" cols="300" style="resize: none;">' + JSON.stringify(data.result, undefined, 2) + '</textarea><br><br><br><br>'); 
+				$("#output").html('<b>Generated Tree (JSON format):</b><br><textarea rows="30" cols="150" style="resize: none;">' + JSON.stringify(data.result, undefined, 2) + '</textarea><br><br><br><br>'); 
 			} else if(data.status == 1) {
-				$("#output").html('<div class="error"><pre>Error at line ' + data.result.location.start.line + ' column ' + data.result.location.start.column + '. Message: ' + data.result.message + '\n</pre></div>'); 
+				$("#output").html('<div class="error">Error at line ' + data.result.location.start.line + ' column ' + data.result.location.start.column + '. Message: ' + data.result.message + '\n</div>'); 
 			} else if(data.status == 2) {
-				$("#output").html('<div class="error"><pre>Error at line ' + data.result.startLine + ' column ' + data.result.startColumn + '. Message: ' + data.result.message + '\n</pre></div>'); 
+				$("#output").html('<div class="error">Error at line ' + data.result.startLine + ' column ' + data.result.startColumn + '. Message: ' + data.result.message + '\n</div>'); 
 			} 		   
           },
           'json'
