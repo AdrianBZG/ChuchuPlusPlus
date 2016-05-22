@@ -1,17 +1,14 @@
 $(document).ready(function() {
+  var myCodeMirror = CodeMirror.fromTextArea(input);
+  myCodeMirror.setSize(1700, 500);
+  
   $('#parse').click(function() {
-    /*try {
-      var result = pl0.parse($('#input').val());
-      $('#output').html(JSON.stringify(result,undefined,2));
-    } catch (e) {
-      $('#output').html('<div class="error"><pre>\n' + JSON.stringify(e, null,4) + '\n</pre></div>');
-    }*/
-		var value = $('#input').val();
+		var value = myCodeMirror.getValue();
         $.get("/parse",
           { data: value },
           function (data) {
 			if(data.status == 1) {
-				$("#output").html(JSON.stringify(data.result, undefined, 2)); 
+				$("#output").html('<textarea rows="30" cols="300" style="resize: none;">' + JSON.stringify(data.result, undefined, 2) + '</textarea><br><br><br><br>'); 
 			} else {
 				$("#output").html('<div class="error"><pre>Error at line ' + data.result.location.start.line + ' column ' + data.result.location.start.column + '. Message: ' + data.result.message + '\n</pre></div>'); 
 			}  		   
@@ -26,7 +23,7 @@ $(document).ready(function() {
     r.onload = function(e) { 
       var contents = e.target.result;
       
-      input.innerHTML = contents;
+      myCodeMirror.setValue(contents);
     }
     r.readAsText(f);
   });

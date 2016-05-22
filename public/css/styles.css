@@ -1,5 +1,5 @@
 body {
-  font-family: Helvetica, Arial, sans-serif; }
+  font-family: Helvetica, Arial, sans-serif; background: #E4F1FE; }
 
 h1 {
   color: #990033;
@@ -12,13 +12,14 @@ header h1 {
   background-size: 5% 70%;
   padding-left: 84px; }
 
+  
 nav {
   font-weight: bold; }
   nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    background: #444444;
+    background: #446CB3;
     overflow: hidden; }
   nav li {
     float: left; }
@@ -26,11 +27,17 @@ nav {
     text-decoration: none;
     display: block;
     padding: 8px;
-    background: #444444;
+    background: #background: #446CB3;;
     color: white; }
     nav a:hover {
-      background: #111111; }
+      background: #59ABE3; }
 
+#footer {
+    position:fixed;
+    bottom:0;
+	width: 100%;
+}
+	  
 p {
   font: 13px/1.4 Helvetica, Arial, sans-serif; }
 
@@ -49,6 +56,10 @@ nav a.current {
   color: #990033;
   border: 1px solid #990033; }
 
+#input {
+  width: 1700px;
+  height: 600px; }
+  
 #like p {
   font-weight: bold;
   color: #990033; }
@@ -78,6 +89,10 @@ nav a.current {
 .error {
   color: white;
   background-color: #990033; }
+  
+.success {
+  color: white;
+  background-color: #A2DED0; }
 
 .centered {
   text-align: center; }

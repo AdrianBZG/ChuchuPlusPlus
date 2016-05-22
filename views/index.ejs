@@ -1,8 +1,5 @@
-<h1>Analizador de PL0 ampliado usando PEG.js</h1>
+<h1>Chuchu++ Analyzer: Transform Chuchu++ code to AST and Generate It's Javascript Code</h1>
 <div id="content">
-  <p class="loadfile">
-    <input type="file" id="examples" />
-  </p>
   <p>
   <nav>
   <ul>
@@ -16,11 +13,11 @@
                     autofocus cols = "40" rows = "4">
           </textarea>
           <br/>
-          <label for="saveas">Save as</label>
-          <input id="saveas" type="text" name="fname" 
-                 title="name" pattern="\w+" />
         </form>
       </td>
+	            <b>File options:</b><br> Save program to file as
+          <input id="saveas" type="text" name="fname" 
+                 title="name" pattern="\w+" /><br>Load program from file <input type="file" id="examples" /><br><br>
       <td><button id="parse" type="button">parse</button></td>
     </tr>
   </table>
@@ -33,4 +30,7 @@
 </div>
 
 <script src="../lib/pl0node.js"></script>
-<script src="main.js"></script>
+<script src="js/codemirror/codemirror.js"></script>
+<link rel="stylesheet" href="css/codemirror.css">
+<script src="js/codemirror/mode/chuchuplusplus/chuchuplusplus.js"></script>
+<script src="js/main.js"></script>
