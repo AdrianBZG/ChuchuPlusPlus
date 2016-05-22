@@ -4,12 +4,107 @@
     <meta charset="utf-8">
     <title>Chuchu++ - Landing Page</title>
     <link rel="icon" type="image/jpg" href="images/CompilerIcon.png" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" charset="utf-8" />
   </head>
   <body>
+<!-- BEGIN # MODAL LOGIN -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" align="center">
+					<img class="img-circle" id="img_logo" src="images/ChuchuLogo.png">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
+				</div>
+                
+                <!-- Begin # DIV Form -->
+                <div id="div-forms">
+                
+                    <!-- Begin # Login Form -->
+                    <form id="login-form">
+		                <div class="modal-body">
+				    		<div id="div-login-msg">
+                                <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                <span id="text-login-msg">Type your username and password.</span>
+                            </div>
+				    		<input id="login_username" class="form-control" type="text" placeholder="Username" required>
+				    		<input id="login_password" class="form-control" type="password" placeholder="Password" required>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Remember me
+                                </label>
+                            </div>
+        		    	</div>
+				        <div class="modal-footer">
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                            </div>
+				    	    <div>
+                                <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                                <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                            </div>
+				        </div>
+                    </form>
+                    <!-- End # Login Form -->
+                    
+                    <!-- Begin | Lost Password Form -->
+                    <form id="lost-form" style="display:none;">
+    	    		    <div class="modal-body">
+		    				<div id="div-lost-msg">
+                                <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                <span id="text-lost-msg">Type your e-mail.</span>
+                            </div>
+		    				<input id="lost_email" class="form-control" type="text" placeholder="E-Mail" required>
+            			</div>
+		    		    <div class="modal-footer">
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+                            </div>
+                            <div>
+                                <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
+                                <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+                            </div>
+		    		    </div>
+                    </form>
+                    <!-- End | Lost Password Form -->
+                    
+                    <!-- Begin | Register Form -->
+                    <form id="register-form" style="display:none;">
+            		    <div class="modal-body">
+		    				<div id="div-register-msg">
+                                <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                <span id="text-register-msg">Register an account.</span>
+                            </div>
+		    				<input id="register_username" class="form-control" type="text" placeholder="Username" required>
+                            <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
+                            <input id="register_password" class="form-control" type="password" placeholder="Password" required>
+            			</div>
+		    		    <div class="modal-footer">
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                            </div>
+                            <div>
+                                <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
+                                <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                            </div>
+		    		    </div>
+                    </form>
+                    <!-- End | Register Form -->
+                    
+                </div>
+                <!-- End # DIV Form -->
+                
+			</div>
+		</div>
+	</div>
+    <!-- END # MODAL LOGIN -->
   <div id="fondoAzul">
     <nav id="header">
       <ul>
@@ -21,11 +116,12 @@
 		<li> <a href="/account">Account System</a> </li>
 		<li> <a href="http://esprima.org/doc/">Esprima Parser</a> </li>
         <li> <a href="https://campusvirtual.ull.es/1516/course/view.php?id=178">Language Processors UDV</a> </li>
-      </ul><br><img src="images/ChuchuLogo.png" width="256" height="64"><br><br><br>
+      </ul><br><img src="images/ChuchuLogo.png" width="256" height="64"><br><br>
+	  <div id="storedPrograms"><button type="button" class="btn btn-info">First program</button><button type="button" class="btn btn-info">Second program</button><button type="button" class="btn btn-info">Third program</button></div><br>
     </nav>
 	<nav id="loginHeader">
       <ul>
-        <li> <a href="/login"  title="Login"><img src="images/Login-Button.png" width="128" height="128"></a> </li>
+        <li> <a href="#" role="button" data-toggle="modal" data-target="#login-modal"><img id="loginImage" src="images/Login-Button.png" width="128" height="128"></a> </li>
       </ul>
     </nav>
 	</div>
