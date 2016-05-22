@@ -10,8 +10,8 @@
   <body>
     <nav>
       <ul>
-        <li> <a href="/grammar"  title="Grammar" <%=current?("/grammar")%>>Grammar</a> </li>
-        <li> <a href="/"  title="Home" <%=current?("/")%>>Home</a> </li>
+        <li> <a href="/grammar"  title="Grammar">Grammar</a> </li>
+        <li> <a href="/"  title="Home">Home</a> </li>
         <li> <a href="http://campusvirtual.ull.es/1314/course/view.php?id=1104"  title="PL-UDV">PL-UDV</a> </li>
         <li> <a href="https://github.com/crguezl/pegjscalc"  title="Repo">Repo</a> </li>
         <li> <a href="http://en.wikipedia.org/wiki/Recursive_descent_parser#Example_parser"   title="Wikipedia">PL0</a> </li>
@@ -23,6 +23,6 @@
         <li> <a href="https://plus.google.com/u/0/+CasianoRodriguezLeon/" title="crguezl">crguezl</a> </li>
       </ul>
     </nav>
-    <%= yield %>
+    <%- body %>
   </body>
 </html>

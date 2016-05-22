@@ -6,9 +6,6 @@
   <p>
   <nav>
   <ul>
-    <% programs.each do |p| %>
-      <li><a href="<%= p.name %>" <%=current?('/'+p.name)%>><%= p.name %></a></li>
-    <% end %>
   </ul>
   </nav>
   <table>
@@ -17,7 +14,6 @@
         <form action="/save" method="post">
           <textarea id="input" name="input" 
                     autofocus cols = "40" rows = "4">
-<%= source %>
           </textarea>
           <br/>
           <label for="saveas">Save as</label>
@@ -36,5 +32,5 @@
   </div>
 </div>
 
-<script src="pl0.js"></script>
+<script src="../lib/pl0node.js"></script>
 <script src="main.js"></script>
