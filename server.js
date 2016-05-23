@@ -38,7 +38,7 @@ db.serialize(function() {
   }
   
   		db.each("SELECT rowid AS id, name, password FROM Accounts", function(err, row) {
-			console.log("hey: " + row.name + ", " + row.password);
+			console.log("info: " + row.name + ", " + row.password);
 		});  
 	// Delete programs and accounts for debugging
 	var stmt = db.prepare("DELETE FROM Accounts");  
@@ -92,7 +92,6 @@ app.get('/createAccount', (request, response) => {
 		
 		// Insert
 		stmt = db.prepare("INSERT INTO Accounts VALUES (?, ?)");  
-		//Insert data into DB
 		stmt.run(data.name, data.password);  
 		stmt.finalize(); 
 		//
@@ -136,21 +135,10 @@ app.get('/addProgram', (request, response) => {
 //
 
 app.get('/parse', (request, response) => {
-	var code = request.query.data;
-	try {
-		var r = PEG.parse(code);	// Syntactic phase
-		try {
-			semanticPhase(r);			// Semantic phase
-		} catch (e) {
-			// Catch a semantic error
-			response.send ({ "result": e, "status": 2});
-		}
-		//console.log(util.inspect(r, {depth: null}));	// Show tree
-		response.send ({ "result": r, "status": 0});
-	} catch (e) {
-		// Catch a syntactic error
-		response.send ({ "result": e, "status": 1});
-	}
+	let code = request.query.data;
+	let r = PEG.parse(code);	// Syntactic phase
+	let s = semanticPhase(r);
+	response.send ({ "result": s.data, "status": s.status});
 });
 
 app.listen(app.get('port'), () => {

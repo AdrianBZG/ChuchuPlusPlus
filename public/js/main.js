@@ -1,20 +1,24 @@
 $(document).ready(function() {
-  var myCodeMirror = CodeMirror.fromTextArea(input);
+  //var myCodeMirror = CodeMirror.fromTextArea(input);
+  var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("input"), {
+    lineNumbers: true,
+    tabindex: 2
+  });
   myCodeMirror.setSize(1000, 500);
   myCodeMirror.setValue("");
    
   $('#parse').click(function() {
-		var value = myCodeMirror.getValue();
+		let value = myCodeMirror.getValue();
         $.get("/parse",
           { data: value },
           function (data) {
-			if(data.status == 0) {
-				$("#output").html('<b>Generated Tree (JSON format):</b><br><textarea rows="30" cols="150" style="resize: none;">' + JSON.stringify(data.result, undefined, 2) + '</textarea><br><br><br><br>'); 
-			} else if(data.status == 1) {
-				$("#output").html('<div class="error">Error at line ' + data.result.location.start.line + ' column ' + data.result.location.start.column + '. Message: ' + data.result.message + '\n</div>'); 
-			} else if(data.status == 2) {
-				$("#output").html('<div class="error">Error at line ' + data.result.startLine + ' column ' + data.result.startColumn + '. Message: ' + data.result.message + '\n</div>'); 
-			} 		   
+			if(data.status == 'success') {
+				let valueToShow = JSON.stringify(data.result, undefined, 2);
+				//let valueToShow = data.result;
+				$("#output").html('<b>Generated Tree (JSON format):</b><br><textarea rows="30" cols="150" style="resize: none;">' + valueToShow + '</textarea><br><br><br><br>'); 
+			} else if(data.status == 'error') {
+				$("#output").html('<div class="error">ERROR:<br>' + data.result + '</div><br><br><br><br>');   
+			}
           },
           'json'
         );
