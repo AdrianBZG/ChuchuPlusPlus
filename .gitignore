@@ -1,5 +1,4 @@
 .bundle/
 .sass-cache/
-database.db
 lib/pl0node.js
 node_modules
