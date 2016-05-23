@@ -137,6 +137,7 @@ app.get('/addProgram', (request, response) => {
 app.get('/parse', (request, response) => {
 	let code = request.query.data;
 	let r = PEG.parse(code);	// Syntactic phase
+  console.log(r);
 	let s = semanticPhase(r);
 	response.send ({ "result": s.data, "status": s.status});
 });
