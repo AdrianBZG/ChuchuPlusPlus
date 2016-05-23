@@ -36,18 +36,18 @@ db.serialize(function() {
     db.run("CREATE TABLE Accounts (name TEXT, password TEXT)");
 	db.run("CREATE TABLE Programs (owner TEXT, name TEXT, program TEXT)");
   }
-  
+
   		db.each("SELECT rowid AS id, name, password FROM Accounts", function(err, row) {
 			console.log("info: " + row.name + ", " + row.password);
-		});  
+		});
 	// Delete programs and accounts for debugging
-	var stmt = db.prepare("DELETE FROM Accounts");  
-	stmt.run();  
+	var stmt = db.prepare("DELETE FROM Accounts");
+	stmt.run();
 	stmt.finalize();
-		
-	stmt = db.prepare("DELETE FROM Programs");  
-	stmt.run();  
-	stmt.finalize(); 
+
+	stmt = db.prepare("DELETE FROM Programs");
+	stmt.run();
+	stmt.finalize();
 	//
 });
 
@@ -57,43 +57,43 @@ db.serialize(function() {
 app.get('/accountExists', (request, response) => {
 	var data = request.query.data;
 	var result = {};
-	db.serialize(function() {  
+	db.serialize(function() {
 		db.each("SELECT rowid AS id, name, password FROM Accounts WHERE name = " + data.name, function(err, row) {
 			result.text = 'yes';
 			response.send (result);
-		});  
+		});
 	});
 });
 
 app.get('/validateCredentials', (request, response) => {
 	var data = request.query.data;
 	var result = {};
-	db.serialize(function() {  
+	db.serialize(function() {
 		db.all("SELECT rowid AS id, name, password FROM Accounts WHERE name = " + data.name + " AND password = " + data.password, function(err, rows) {
 			result.text = 'yes';
 			response.send (result);
-		});  
+		});
 	});
 });
 
 app.get('/createAccount', (request, response) => {
 	var data = request.query.data;
 	console.log(data);
-	db.serialize(function() {  
+	db.serialize(function() {
 		// Delete
-		var stmt = db.prepare("DELETE FROM Accounts WHERE name = ?");  
-		stmt.run(data.name);  
+		var stmt = db.prepare("DELETE FROM Accounts WHERE name = ?");
+		stmt.run(data.name);
 		stmt.finalize();
-		
-		stmt = db.prepare("DELETE FROM Programs WHERE owner = ?");  
-		stmt.run(data.name);  
-		stmt.finalize(); 
+
+		stmt = db.prepare("DELETE FROM Programs WHERE owner = ?");
+		stmt.run(data.name);
+		stmt.finalize();
 		//
-		
+
 		// Insert
-		stmt = db.prepare("INSERT INTO Accounts VALUES (?, ?)");  
-		stmt.run(data.name, data.password);  
-		stmt.finalize(); 
+		stmt = db.prepare("INSERT INTO Accounts VALUES (?, ?)");
+		stmt.run(data.name, data.password);
+		stmt.finalize();
 		//
 	});
 });
@@ -119,11 +119,11 @@ app.get('/getPrograms', (request, response) => {
 app.get('/addProgram', (request, response) => {
 	var data = request.query.data;
 	var programs = [];
-	db.serialize(function() {  
-		var stmt = db.prepare("INSERT INTO Programs VALUES (?, ?, ?)");  
+	db.serialize(function() {
+		var stmt = db.prepare("INSERT INTO Programs VALUES (?, ?, ?)");
 		//Insert data into DB
-		stmt.run(data.owner, data.name, data.program);  
-		stmt.finalize(); 
+		stmt.run(data.owner, data.name, data.program);
+		stmt.finalize();
 		db.each("SELECT name, program FROM Programs WHERE owner = '" + data.owner + "'", function(err, row) {
 			programs.push({"name": row.name, "program": row.program});
 			if(programs.length == 1) {
