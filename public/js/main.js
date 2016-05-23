@@ -35,12 +35,25 @@ $(document).ready(function() {
     r.readAsText(f);
   });
 
+    $('#saveProgramButton').click(function() {
+		var valueToSent = {};
+		valueToSent.program = myCodeMirror.getValue();
+		valueToSent.owner = 'adrian';
+		valueToSent.name = $("#saveas").val();
+        $.get("/addProgram",
+          { data: valueToSent },
+          function (data) {
+				$("#storedPrograms").html('<a href="getProgram/' + data[0].name + '"><button type="button" class="btn btn-info">' + data[0].name + '</button></a>'); 				
+          },
+          'json'
+        );
+  });
+
 });
 
 $(function() {
     
     var $formLogin = $('#login-form');
-    var $formLost = $('#lost-form');
     var $formRegister = $('#register-form');
     var $divForms = $('#div-forms');
     var $modalAnimateTime = 300;
@@ -51,20 +64,26 @@ $(function() {
         switch(this.id) {
             case "login-form":
                 var $lg_username=$('#login_username').val();
-                var $lg_password=$('#login_password').val();
-                if ($lg_username == "ERROR") {
+				var $lg_password=$('#login_password').val();
+				
+				var checkResult;
+				var valueToSent = {};
+				valueToSent.name = $('#login_username').val();
+				valueToSent.password = $('#login_password').val();
+				$.ajaxSetup({async: false});
+				$.get("/validateCredentials",
+				{ async: false,
+				  data: valueToSent },
+					function (data) {
+					checkResult = data.text; 				
+				},
+				'json'
+				);
+                
+                if (checkResult == 'yes') {
+					msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "success", "glyphicon-ok", "Login OK");
+                } else {
                     msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "error", "glyphicon-remove", "Login error");
-                } else {
-                    msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "success", "glyphicon-ok", "Login OK");
-                }
-                return false;
-                break;
-            case "lost-form":
-                var $ls_email=$('#lost_email').val();
-                if ($ls_email == "ERROR") {
-                    msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "error", "glyphicon-remove", "Send error");
-                } else {
-                    msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "success", "glyphicon-ok", "Send OK");
                 }
                 return false;
                 break;
@@ -72,12 +91,40 @@ $(function() {
                 var $rg_username=$('#register_username').val();
                 var $rg_email=$('#register_email').val();
                 var $rg_password=$('#register_password').val();
-                if ($rg_username == "ERROR") {
-                    msgChange($('#div-register-msg'), $('#icon-register-msg'), $('#text-register-msg'), "error", "glyphicon-remove", "Register error");
+				
+				var checkResult;
+				var valueToSent = {};
+				valueToSent.name = $('#register_username').val();
+				$.ajaxSetup({async: false});
+				$.when($.get("/accountExists",
+				{ async: false,
+				  data: valueToSent },
+					function (data) {
+					checkResult = data.text; 				
+				},
+				'json'
+				)).then(function(){
+					if (checkResult == 'yes') {
+					msgChange($('#div-register-msg'), $('#icon-register-msg'), $('#text-register-msg'), "error", "glyphicon-remove", "Account already exists");
                 } else {
-                    msgChange($('#div-register-msg'), $('#icon-register-msg'), $('#text-register-msg'), "success", "glyphicon-ok", "Register OK");
+					valueToSent.name = $('#register_username').val();
+					valueToSent.password = $('#register_password').val();
+					$.ajaxSetup({async: false});
+					$.when($.get("/createAccount",
+					{ async: false,
+					  data: valueToSent },
+						function (data) {			
+					},
+					'json'
+					)).then(function(){
+						// thing b
+					});
+					
+					msgChange($('#div-register-msg'), $('#icon-register-msg'), $('#text-register-msg'), "success", "glyphicon-ok", "Register OK");	
                 }
                 return false;
+				});
+				
                 break;
             default:
                 return false;
@@ -87,10 +134,6 @@ $(function() {
     
     $('#login_register_btn').click( function () { modalAnimate($formLogin, $formRegister) });
     $('#register_login_btn').click( function () { modalAnimate($formRegister, $formLogin); });
-    $('#login_lost_btn').click( function () { modalAnimate($formLogin, $formLost); });
-    $('#lost_login_btn').click( function () { modalAnimate($formLost, $formLogin); });
-    $('#lost_register_btn').click( function () { modalAnimate($formLost, $formRegister); });
-    $('#register_lost_btn').click( function () { modalAnimate($formRegister, $formLost); });
     
     function modalAnimate ($oldForm, $newForm) {
         var $oldH = $oldForm.height();
