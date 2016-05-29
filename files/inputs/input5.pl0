@@ -1,4 +1,4 @@
-const A = 4, 
+const A = 4,
       B = 30;
 var b, m;
 
@@ -6,8 +6,8 @@ function fact(n);
   var t;
   function tutu(a,b,c);
     return 4;
-{ 
-  if n <= 1 then return 1 
+{
+  if n <= 1 then return 1
   else return n*fact(n-1);
 };
 
