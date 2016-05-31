@@ -1,0 +1,8 @@
+switch (a) {
+  case 5 {
+    jojo(3);
+  }
+  default {
+    tutu(tata);
+  }
+}
