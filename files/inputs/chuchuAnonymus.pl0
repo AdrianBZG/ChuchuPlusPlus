@@ -1,0 +1,4 @@
+pepe = function () {
+  var e;
+  const PEPE = 3;
+}
