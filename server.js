@@ -6,7 +6,7 @@ const app = express();
 const path = require('path');
 const fs = require("fs");
 const expressLayouts = require('express-ejs-layouts');
-const PEG = require("./lib/pl0node.js");
+const PEG = require("./lib/chuchugrammar.js");
 const semantic = require('./lib/semantic.js');						// Require the semantic module
 const semanticPhase = semantic.semantic;							// Import the semantic function
 const databaseFile = "db/database.db";
@@ -137,7 +137,7 @@ app.get('/addProgram', (request, response) => {
 app.get('/parse', (request, response) => {
 	let code = request.query.data;
 	let r = PEG.parse(code);	// Syntactic phase
-    console.log(r);
+    //console.log(r);
 	let s = semanticPhase(r);
 	//console.log(s);
 	response.send ({ "result": s.data, "status": s.status});

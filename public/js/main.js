@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  //var myCodeMirror = CodeMirror.fromTextArea(input);
   var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("input"), {
     lineNumbers: true,
     tabindex: 2

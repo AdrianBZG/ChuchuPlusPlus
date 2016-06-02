@@ -21,7 +21,7 @@ gulp.task('test', function() {
 });
 
 gulp.task('ast', function () {
-  return gulp.src('').pipe(shell([ 'pegjs lib/pl0.pegjs lib/pl0node.js' ]));
+  return gulp.src('').pipe(shell([ 'pegjs lib/chuchu.pegjs lib/chuchugrammar.js' ]));
 });
 
 gulp.task('server', function () {
