@@ -1,3 +1,14 @@
-.bundle/
+# Ignore cache files from Sass
 .sass-cache/
+
+# Ignoring PDF files
+*.pdf
+
+# Ignoring temp files
+*~
+
+# Ignoring bundles
+.bundle/
+
+#Ignoring Node modules
 node_modules
