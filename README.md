@@ -26,7 +26,7 @@ Analyzer Preview (0.1)<br>
 
 ## HEROKU DEPLOYMENT
 
-Application: --- <br>
+Application (can be outdated): [Click here...](https://chuchuplusplus.herokuapp.com/) <br>
 Testing: --- <br>
 
 
