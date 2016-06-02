@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Testing: Chuchu++ Grammar - Adrian Rodriguez Bazaga & Rudolf Cicko</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="assets/js/mocha.js"></script>
+    <script src="assets/js/chai.js"></script>
+    <script src="assets/js/blanket.js"
+           data-cover-adapter="assets/js/mocha-blanket.js"></script>
+    <script src="assets/js/chuchugrammar.js" data-cover></script>
+
+    <script>mocha.setup('bdd');</script>
+    <script src="assets/js/chuchuplusplus-testing.js"></script>
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>
