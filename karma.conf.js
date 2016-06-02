@@ -23,7 +23,11 @@ module.exports = function(config) {
       'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js',
 	  'https://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.min.js',
       'public/tests/index.html',
-      'public/tests/assets/js/*.js'
+      'public/tests/assets/js/blanket.js',
+      'public/tests/assets/js/chai.js',
+      'public/tests/assets/js/mocha.js',
+      'public/tests/assets/js/mocha-blanket.js',
+      'public/tests/assets/js/chuchuplusplus-testing.js'
     ],
 
     // list of files to exclude
