@@ -26,7 +26,7 @@ Analyzer Preview (0.1)<br>
 
 ## HEROKU DEPLOYMENT
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AdrianBZG/ChuchuPlusPlus)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AdrianBZG/ChuchuPlusPlus) <br>
 Application (can be outdated): [Click here...](https://chuchuplusplus.herokuapp.com/) <br>
 Testing: --- <br>
 
