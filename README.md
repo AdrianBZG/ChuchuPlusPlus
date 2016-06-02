@@ -6,6 +6,19 @@ Chuchu++ is a grammar that uses PEGjs for parsing it's code and transform it to 
 
 Please note that development is very early on.
 
+## Allowed programming paradigms
+- Imperative paradigm <br>
+- Functional programming <br>
+- Object-oriented programming <br>
+
+## Allowed types
+Chuchu++ is a dynamic type language/grammar, because it'll generate JavaScript code so all types are allowed
+
+## Chuchu++ Analyzer Phases
+1. Syntactic analysis
+2. Semantic analysis
+3. Code generation phase (not yet)
+
 ## Front-End Preview
 
 Analyzer Preview (0.1)<br>
@@ -29,6 +42,26 @@ Testing: --- <br>
 | EJS      |  >= 2.4.*                               |
 | Gulp      |  >= 3.9.*                               |
 | CodeMirror      |  >= 5.*                               |
+
+## Used technologies
+- PEGjs <br>
+- NodeJS <br>
+- SQLite <br>
+- Gulp <br>
+- CodeMirror <br>
+- jQuery <br>
+- AJAX <br>
+- SASS <br>
+- Underscore <br>
+- Karma + Mocha + Chai + Sinon <br>
+- File Handling <br>
+- RegExp (For the PEG grammar) <br>
+- Views (ExpressJS) <br>
+- ECMA 6 <br>
+- Event Handling <br>
+- PAAS Deployment (Heroku) <br>
+- Version control + Collaboration (Git) <br>
+
 
 ## Running
 
