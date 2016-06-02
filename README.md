@@ -1,6 +1,6 @@
 # Chuchu++ Grammar
 [![Chuchu++ Logo](http://i.imgur.com/pokEntB.png?1)](#)<br><br>
-Build Status (Not Available Yet): [![Build Status](https://travis-ci.org/AdrianBZG/SyncMe.svg?branch=master)](---)
+Build Status: [![Build Status](https://travis-ci.com/AdrianBZG/ChuchuPlusPlus.svg?token=Yw4nNUiKBAqLw1UVKgoY&branch=master)](https://travis-ci.com/AdrianBZG/ChuchuPlusPlus)
 
 Chuchu++ is a PL0-based grammar that uses PEGjs for parsing it's code and transform it to an AST, after that you're able to generate javascript code using our own Chuchu++ Code Generator (not available yet)
 
@@ -55,7 +55,8 @@ Testing: --- <br>
 - AJAX <br>
 - SASS <br>
 - Underscore <br>
-- Karma + Mocha + Chai + Sinon <br>
+- Testing: Karma + Mocha + Chai + Sinon <br>
+- Continuous Integration: Travis <br>
 - File Handling <br>
 - RegExp (For the PEG grammar) <br>
 - Views (ExpressJS) <br>
