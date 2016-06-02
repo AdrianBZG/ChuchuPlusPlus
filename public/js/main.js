@@ -6,7 +6,7 @@ $(document).ready(function() {
   });
   myCodeMirror.setSize(1000, 500);
   myCodeMirror.setValue("");
-   
+
   $('#parse').click(function() {
 		let value = myCodeMirror.getValue();
         $.get("/parse",
@@ -15,25 +15,25 @@ $(document).ready(function() {
 			if(data.status == 'success') {
 				let valueToShow = JSON.stringify(data.result, undefined, 2);
 				//let valueToShow = data.result;
-				$("#output").html('<b>Generated Tree (JSON format):</b><br><textarea rows="30" cols="150" style="resize: none;">' + valueToShow + '</textarea><br><br><br><br>'); 
+				$("#output").html('<b>Generated Tree (JSON format):</b><br><textarea rows="30" cols="150" style="resize: none;">' + valueToShow + '</textarea><br><br><br><br>');
 			} else if(data.status == 'error') {
-				$("#output").html('<div class="error">ERROR:<br>' + data.result + '</div><br><br><br><br>');   
+				$("#output").html('<div class="error">ERROR:<br>' + data.result + '</div><br><br><br><br>');
 			}
           },
           'json'
         );
   });
-  
+
     $('#loginImage').click(function() {
 		 $('#myModal').show()
   });
 
   $("#examples").change(function(ev) {
-    var f = ev.target.files[0]; 
+    var f = ev.target.files[0];
     var r = new FileReader();
-    r.onload = function(e) { 
+    r.onload = function(e) {
       var contents = e.target.result;
-      
+
       myCodeMirror.setValue(contents);
     }
     r.readAsText(f);
@@ -47,7 +47,7 @@ $(document).ready(function() {
         $.get("/addProgram",
           { data: valueToSent },
           function (data) {
-				$("#storedPrograms").html('<a href="getProgram/' + data[0].name + '"><button type="button" class="btn btn-info">' + data[0].name + '</button></a>'); 				
+				$("#storedPrograms").html('<a href="getProgram/' + data[0].name + '"><button type="button" class="btn btn-info">' + data[0].name + '</button></a>');
           },
           'json'
         );
@@ -56,7 +56,7 @@ $(document).ready(function() {
 });
 
 $(function() {
-    
+
     var $formLogin = $('#login-form');
     var $formRegister = $('#register-form');
     var $divForms = $('#div-forms');
@@ -69,7 +69,7 @@ $(function() {
             case "login-form":
                 var $lg_username=$('#login_username').val();
 				var $lg_password=$('#login_password').val();
-				
+
 				var checkResult;
 				var valueToSent = {};
 				valueToSent.name = $('#login_username').val();
@@ -79,11 +79,11 @@ $(function() {
 				{ async: false,
 				  data: valueToSent },
 					function (data) {
-					checkResult = data.text; 				
+					checkResult = data.text;
 				},
 				'json'
 				);
-                
+
                 if (checkResult == 'yes') {
 					msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "success", "glyphicon-ok", "Login OK");
                 } else {
@@ -95,7 +95,7 @@ $(function() {
                 var $rg_username=$('#register_username').val();
                 var $rg_email=$('#register_email').val();
                 var $rg_password=$('#register_password').val();
-				
+
 				var checkResult;
 				var valueToSent = {};
 				valueToSent.name = $('#register_username').val();
@@ -104,7 +104,7 @@ $(function() {
 				{ async: false,
 				  data: valueToSent },
 					function (data) {
-					checkResult = data.text; 				
+					checkResult = data.text;
 				},
 				'json'
 				)).then(function(){
@@ -117,28 +117,28 @@ $(function() {
 					$.when($.get("/createAccount",
 					{ async: false,
 					  data: valueToSent },
-						function (data) {			
+						function (data) {
 					},
 					'json'
 					)).then(function(){
 						// thing b
 					});
-					
-					msgChange($('#div-register-msg'), $('#icon-register-msg'), $('#text-register-msg'), "success", "glyphicon-ok", "Register OK");	
+
+					msgChange($('#div-register-msg'), $('#icon-register-msg'), $('#text-register-msg'), "success", "glyphicon-ok", "Register OK");
                 }
                 return false;
 				});
-				
+
                 break;
             default:
                 return false;
         }
         return false;
     });
-    
+
     $('#login_register_btn').click( function () { modalAnimate($formLogin, $formRegister) });
     $('#register_login_btn').click( function () { modalAnimate($formRegister, $formLogin); });
-    
+
     function modalAnimate ($oldForm, $newForm) {
         var $oldH = $oldForm.height();
         var $newH = $newForm.height();
@@ -149,13 +149,13 @@ $(function() {
             });
         });
     }
-    
+
     function msgFade ($msgId, $msgText) {
         $msgId.fadeOut($msgAnimateTime, function() {
             $(this).text($msgText).fadeIn($msgAnimateTime);
         });
     }
-    
+
     function msgChange($divTag, $iconTag, $textTag, $divClass, $iconClass, $msgText) {
         var $msgOld = $divTag.text();
         msgFade($textTag, $msgText);
@@ -170,6 +170,3 @@ $(function() {
   		}, $msgShowTime);
     }
 });
-
-  
-
