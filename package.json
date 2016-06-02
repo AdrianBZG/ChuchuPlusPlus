@@ -18,8 +18,7 @@
     "gulp-shell": "^0.5.2",
     "gulp-watch": "^4.3.5",
     "karma": "^0.13.22",
-    "path": "^0.12.7",
-    "esprima": "2.7.2"
+    "path": "^0.12.7"
   },
   "dependencies": {
     "codemirror": "^5.15.2",
