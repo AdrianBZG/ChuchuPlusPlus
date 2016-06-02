@@ -11,6 +11,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+  },
+  "dependencies": {
+    "codemirror": "^5.15.2",
+    "ejs": "^2.4.1",
+    "pegjs": "^0.9.0",
+    "sqlite3": "^3.1.4",
     "express": "^4.13.4",
     "express-ejs-layouts": "^2.1.0",
     "gulp": "^3.9.1",
@@ -19,11 +25,5 @@
     "gulp-watch": "^4.3.5",
     "karma": "^0.13.22",
     "path": "^0.12.7"
-  },
-  "dependencies": {
-    "codemirror": "^5.15.2",
-    "ejs": "^2.4.1",
-    "pegjs": "^0.9.0",
-    "sqlite3": "^3.1.4"
   }
 }
