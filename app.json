@@ -1,0 +1,7 @@
+{
+  "name": "Chuchu++ Heroku Deployment",
+  "description": "Chuchu++ Analyzer deployment using Heroku",
+  "repository": "https://github.com/AdrianBZG/ChuchuPlusPlus",
+  "logo": "http://i.imgur.com/pokEntB.png",
+  "keywords": ["chuchu++", "chuchu", "pegjs", "grammar", "bazaga", "adrianbzg", "adrian rodriguez bazaga", "cicko", "rudolf cicko"]
+}
