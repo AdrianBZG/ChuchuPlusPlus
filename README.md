@@ -49,6 +49,7 @@ Testing: --- <br>
 - SQLite <br>
 - Gulp <br>
 - CodeMirror <br>
+- MathJAX <br>
 - jQuery <br>
 - AJAX <br>
 - SASS <br>
