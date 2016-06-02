@@ -8,15 +8,15 @@ Please note that development is very early on.
 
 ## Allowed programming paradigms
 - Imperative paradigm <br>
-- Functional programming <br>
-- Object-oriented programming <br>
+- Functional programming paradigm <br>
+- Object-oriented programming paradigm <br>
 
 ## Allowed types
 Chuchu++ is a dynamic type language/grammar, because it'll generate JavaScript code so all types are allowed
 
 ## Chuchu++ Analyzer Phases
-1. Syntactic analysis
-2. Semantic analysis
+1. Syntactic analysis [Some features...](https://github.com/AdrianBZG/ChuchuPlusPlus/issues?q=is%3Aissue+label%3Asyntactic)
+2. Semantic analysis [Some features...](https://github.com/AdrianBZG/ChuchuPlusPlus/issues?q=is%3Aissue+label%3Asemantic)
 3. Code generation phase (not yet)
 
 ## Front-End Preview
