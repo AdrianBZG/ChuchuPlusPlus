@@ -2,7 +2,7 @@
 [![Chuchu++ Logo](http://i.imgur.com/pokEntB.png?1)](#)<br><br>
 Build Status (Not Available Yet): [![Build Status](https://travis-ci.org/AdrianBZG/SyncMe.svg?branch=master)](---)
 
-Chuchu++ is a grammar that uses PEGjs for parsing it's code and transform it to an AST, after that you're able to generate javascript code using our own Chuchu++ Code Generator (not available yet)
+Chuchu++ is a PL0-based grammar that uses PEGjs for parsing it's code and transform it to an AST, after that you're able to generate javascript code using our own Chuchu++ Code Generator (not available yet)
 
 Please note that development is very early on.
 
