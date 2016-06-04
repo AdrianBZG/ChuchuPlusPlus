@@ -107,6 +107,15 @@ app.get('/getProgram/:nombre', (request, response) => {
 		});
 });
 
+app.get('/getProgram/:entry', function(req, res) {
+    var data = req;
+	console.log("hey: " + data);
+	var program;
+	db.each("SELECT program FROM Programs WHERE name = '" + data + "'", function(err, row) {
+			response.send(row.program);
+		});
+});
+
 app.get('/getPrograms', (request, response) => {
 	var data = request.query.data;
 	var programs = {};
