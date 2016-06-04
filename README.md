@@ -21,8 +21,8 @@ Chuchu++ is a dynamic type language/grammar, because it'll generate JavaScript c
 
 ## Front-End Preview
 
-Analyzer Preview (0.1)<br>
-<div style="text-align:center">![Analyzer Preview (0.1)](http://i.imgur.com/OgzFWUu.png?1 "Analyzer Preview (0.1)")</div><br>
+Analyzer Preview (0.2)<br>
+<div style="text-align:center">![Analyzer Preview (0.2)](http://i.imgur.com/Z63eLdr.png?1 "Analyzer Preview (0.2)")</div><br>
 
 ## HEROKU DEPLOYMENT
 
