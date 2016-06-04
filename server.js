@@ -108,7 +108,7 @@ app.get('/getProgram/:nombre', (request, response) => {
 });
 
 app.get('/getProgram/:entry', function(req, res) {
-    var data = req;
+    var data = req.param.entry;
 	console.log("hey: " + data);
 	var program;
 	db.each("SELECT program FROM Programs WHERE name = '" + data + "'", function(err, row) {
@@ -123,6 +123,16 @@ app.get('/getPrograms', (request, response) => {
 			programs.push({ "name": row.name, "program": row.program});
 		});
 	response.send (programs);
+});
+
+app.get('/cleanDB', (request, response) => {
+    db.serialize(function() {
+		// Delete
+		var stmt = db.prepare("DELETE FROM Programs");
+		stmt.run();
+		stmt.finalize();
+		//
+	});
 });
 
 app.get('/addProgram', (request, response) => {

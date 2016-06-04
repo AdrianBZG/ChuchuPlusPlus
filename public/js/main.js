@@ -37,7 +37,28 @@ $(document).ready(function() {
     }
     r.readAsText(f);
   });
-
+  
+   /* botones para rellenar el textarea */
+    $('button.programbutton').each((_, y) => {
+          $(y).click(() => {
+          /* Buscamos la entrada de la BD especificada por el nombre del botón
+          y colocamos el contenido de dicha entrada de la BD en el textarea*/
+          $.get("/getProgram", {
+            name: $(y).text()
+          },
+          (data) => {
+		  console.log(data[0].content);
+          //$("#original").val(data[0].content);
+        });
+      });
+    });
+	
+	$("#cleanDB").click( () => {
+      $.get("/cleanDB");
+      $("#storedPrograms").empty();
+      alert("The programs database has been cleaned up!");
+    });
+	
     $('#saveProgramButton').click(function() {
 		var valueToSent = {};
 		valueToSent.program = myCodeMirror.getValue();
@@ -46,7 +67,7 @@ $(document).ready(function() {
         $.get("/addProgram",
           { data: valueToSent },
           function (data) {
-				$("#storedPrograms").html('<a href="getProgram/' + data[0].name + '"><button type="button" class="btn btn-info">' + data[0].name + '</button></a>');
+				$("#storedPrograms").html('<a href="getProgram/' + data[0].name + '"><button type="button" class="programbutton btn btn-info">' + data[0].name + '</button></a>');
           },
           'json'
         );
