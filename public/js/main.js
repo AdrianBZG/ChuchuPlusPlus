@@ -23,20 +23,24 @@ $(document).ready(function() {
         );
   });
 
-    $('#loginImage').click(function() {
+  $('#loginImage').click(function() {
 		 $('#myModal').show()
   });
-
-  $("#examples").change(function(ev) {
-    var f = ev.target.files[0];
-    var r = new FileReader();
-    r.onload = function(e) {
-      var contents = e.target.result;
-
-      myCodeMirror.setValue(contents);
-    }
-    r.readAsText(f);
-  });
+  
+  // Load buttons from database on page load
+  (function(){
+    $.ajax({ url: '/getAllPrograms'
+         , type: 'GET'
+        })
+    .done(function(data) {
+      console.log(data);
+	  data.forEach( function(v) { 
+			// Add the button for every stored program
+			$("#storedPrograms").append('<button type="button" class="programbutton btn btn-info">' + v + '</button>');
+	  } );
+    });
+  })();
+  //
   
    /* botones para rellenar el textarea */
     $('button.programbutton').each((_, y) => {
@@ -47,7 +51,7 @@ $(document).ready(function() {
             name: $(y).text()
           },
           (data) => {
-		  console.log(data[0].content);
+		  console.log(data);
           //$("#original").val(data[0].content);
         });
       });
@@ -62,12 +66,12 @@ $(document).ready(function() {
     $('#saveProgramButton').click(function() {
 		var valueToSent = {};
 		valueToSent.program = myCodeMirror.getValue();
-		valueToSent.owner = 'adrian';
+		valueToSent.owner = 'User';
 		valueToSent.name = $("#saveas").val();
         $.get("/addProgram",
           { data: valueToSent },
           function (data) {
-				$("#storedPrograms").html('<a href="getProgram/' + data[0].name + '"><button type="button" class="programbutton btn btn-info">' + data[0].name + '</button></a>');
+				$("#storedPrograms").append('<button type="button" class="programbutton btn btn-info">' + valueToSent.name + '</button>');
           },
           'json'
         );

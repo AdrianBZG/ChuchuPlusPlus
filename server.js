@@ -37,17 +37,17 @@ db.serialize(function() {
 	db.run("CREATE TABLE Programs (owner TEXT, name TEXT, program TEXT)");
   }
 
-  		db.each("SELECT rowid AS id, name, password FROM Accounts", function(err, row) {
-			console.log("info: " + row.name + ", " + row.password);
-		});
+  	db.each("SELECT rowid AS id, name, password FROM Accounts", function(err, row) {
+		console.log("info: " + row.name + ", " + row.password);
+	});
 	// Delete programs and accounts for debugging
 	var stmt = db.prepare("DELETE FROM Accounts");
 	stmt.run();
 	stmt.finalize();
 
-	stmt = db.prepare("DELETE FROM Programs");
-	stmt.run();
-	stmt.finalize();
+	//stmt = db.prepare("DELETE FROM Programs");
+	//stmt.run();
+	//stmt.finalize();
 	//
 });
 
@@ -107,22 +107,23 @@ app.get('/getProgram/:nombre', (request, response) => {
 		});
 });
 
-app.get('/getProgram/:entry', function(req, res) {
-    var data = req.param.entry;
-	console.log("hey: " + data);
-	var program;
-	db.each("SELECT program FROM Programs WHERE name = '" + data + "'", function(err, row) {
-			response.send(row.program);
-		});
-});
-
-app.get('/getPrograms', (request, response) => {
+app.get('/getProgramsFromUser', (request, response) => {
 	var data = request.query.data;
-	var programs = {};
+	var programs = [];
 	db.each("SELECT name, program FROM Programs WHERE owner = " + data.name, function(err, row) {
 			programs.push({ "name": row.name, "program": row.program});
 		});
 	response.send (programs);
+});
+
+app.get('/getAllPrograms', (request, response) => {
+	var programs = [];
+	db.all("SELECT owner, name, program FROM Programs WHERE owner = 'User'", function(err, rows) {
+		rows.forEach(function (row) {
+			programs.push(row.name);
+        });
+		response.json(programs);
+	});
 });
 
 app.get('/cleanDB', (request, response) => {
