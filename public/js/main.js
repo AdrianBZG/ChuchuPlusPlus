@@ -3,7 +3,7 @@ $(document).ready(function() {
     lineNumbers: true,
     tabindex: 2
   });
-  myCodeMirror.setSize(1000, 500);
+  myCodeMirror.setSize(1000, 400);
   myCodeMirror.setValue("");
 
   $('#parse').click(function() {

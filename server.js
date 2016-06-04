@@ -23,11 +23,19 @@ app.use(expressLayouts);
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (request, response) => {
-  response.render ('index', { title: "Chuchu++"} );
+  response.render ('index', { title: "Chuchu++ | Analyzer"} );
 });
 
 app.get('/grammar', (request, response) => {
-  response.render ('grammar', { title: "Chuchu++"} );
+  response.render ('grammar', { title: "Chuchu++ | Grammar"} );
+});
+
+app.get('/account', (request, response) => {
+  response.render ('account', { title: "Chuchu++ | Account System Information"} );
+});
+
+app.get('/codegenerator', (request, response) => {
+  response.render ('codegenerator', { title: "Chuchu++ | Code Generator Information"} );
 });
 
 // Create SQLite databases if not exists
