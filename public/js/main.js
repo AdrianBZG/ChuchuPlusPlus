@@ -33,29 +33,26 @@ $(document).ready(function() {
          , type: 'GET'
         })
     .done(function(data) {
-      console.log(data);
 	  data.forEach( function(v) { 
 			// Add the button for every stored program
-			$("#storedPrograms").append('<button type="button" class="programbutton btn btn-info">' + v + '</button>');
+			$("#storedPrograms").append('<button type="button" class="programbutton btn btn-info" name="' + v + '">' + v + '</button>');
 	  } );
     });
   })();
   //
   
-   /* botones para rellenar el textarea */
-    $('button.programbutton').each((_, y) => {
-          $(y).click(() => {
-          /* Buscamos la entrada de la BD especificada por el nombre del botón
-          y colocamos el contenido de dicha entrada de la BD en el textarea*/
-          $.get("/getProgram", {
-            name: $(y).text()
+  // Delegated event handler para los botones
+  $('#storedPrograms').on('click', 'button.programbutton', function(){
+    //console.log(this.name);
+	$.get("/getProgram/xxx",
+          { nombre: this.name },
+          function (data) {
+			myCodeMirror.setValue(data);
           },
-          (data) => {
-		  console.log(data);
-          //$("#original").val(data[0].content);
-        });
-      });
-    });
+          'json'
+        );
+  });
+  //
 	
 	$("#cleanDB").click( () => {
       $.get("/cleanDB");
@@ -71,7 +68,7 @@ $(document).ready(function() {
         $.get("/addProgram",
           { data: valueToSent },
           function (data) {
-				$("#storedPrograms").append('<button type="button" class="programbutton btn btn-info">' + valueToSent.name + '</button>');
+				$("#storedPrograms").append('<button type="button" class="programbutton btn btn-info" name="' + valueToSent.name + '">' + valueToSent.name + '</button>');
           },
           'json'
         );

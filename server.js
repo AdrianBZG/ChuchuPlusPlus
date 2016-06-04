@@ -99,12 +99,10 @@ app.get('/createAccount', (request, response) => {
 });
 
 app.get('/getProgram/:nombre', (request, response) => {
-	var data = request.nombre;
-	console.log("hey: " + data);
-	var program;
-	db.each("SELECT program FROM Programs WHERE name = '" + data + "'", function(err, row) {
-			response.send(row.program);
-		});
+	var data = request.query.nombre;
+	db.each("SELECT owner, name, program FROM Programs WHERE name = '" + data + "'", function(err, row) {
+	    response.json(row.program);
+	});
 });
 
 app.get('/getProgramsFromUser', (request, response) => {
