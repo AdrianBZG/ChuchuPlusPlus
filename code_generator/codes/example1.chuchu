@@ -1,0 +1,181 @@
+{
+  "type": "Block",
+  "constants": [],
+  "classes": [],
+  "variables": [],
+  "object": [],
+  "functions": [
+    {
+      "type": "Function",
+      "name": {
+        "type": "ID",
+        "value": "entrenar",
+        "location": {
+          "start": {
+            "offset": 9,
+            "line": 1,
+            "column": 10
+          },
+          "end": {
+            "offset": 17,
+            "line": 1,
+            "column": 18
+          }
+        }
+      },
+      "params": [
+        {
+          "type": "ID",
+          "value": "musculo",
+          "location": {
+            "start": {
+              "offset": 18,
+              "line": 1,
+              "column": 19
+            },
+            "end": {
+              "offset": 25,
+              "line": 1,
+              "column": 26
+            }
+          }
+        }
+      ],
+      "block": {
+        "type": "Compound",
+        "children": [
+          {
+            "type": "Assign",
+            "left": {
+              "type": "ID",
+              "value": "potencia",
+              "location": {
+                "start": {
+                  "offset": 30,
+                  "line": 2,
+                  "column": 2
+                },
+                "end": {
+                  "offset": 39,
+                  "line": 2,
+                  "column": 11
+                }
+              }
+            },
+            "right": {
+              "type": "*",
+              "left": {
+                "type": "ID",
+                "value": "musculo",
+                "location": {
+                  "start": {
+                    "offset": 41,
+                    "line": 2,
+                    "column": 13
+                  },
+                  "end": {
+                    "offset": 49,
+                    "line": 2,
+                    "column": 21
+                  }
+                }
+              },
+              "right": {
+                "type": "NUM",
+                "value": 2
+              }
+            }
+          },
+          {
+            "type": "Return",
+            "children": [
+              {
+                "type": "ID",
+                "value": "potencia",
+                "location": {
+                  "start": {
+                    "offset": 64,
+                    "line": 3,
+                    "column": 11
+                  },
+                  "end": {
+                    "offset": 72,
+                    "line": 3,
+                    "column": 19
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "main": {
+    "type": "Compound",
+    "children": [
+      {
+        "type": "Assign",
+        "left": {
+          "type": "ID",
+          "value": "a",
+          "location": {
+            "start": {
+              "offset": 81,
+              "line": 6,
+              "column": 4
+            },
+            "end": {
+              "offset": 83,
+              "line": 6,
+              "column": 6
+            }
+          }
+        },
+        "right": {
+          "type": "NUM",
+          "value": 3
+        }
+      },
+      {
+        "type": "Call",
+        "func": {
+          "type": "ID",
+          "value": "entrenar",
+          "location": {
+            "start": {
+              "offset": 91,
+              "line": 7,
+              "column": 4
+            },
+            "end": {
+              "offset": 99,
+              "line": 7,
+              "column": 12
+            }
+          }
+        },
+        "arguments": [
+          {
+            "type": "ID",
+            "value": "a",
+            "location": {
+              "start": {
+                "offset": 100,
+                "line": 7,
+                "column": 13
+              },
+              "end": {
+                "offset": 101,
+                "line": 7,
+                "column": 14
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "name": "$main",
+  "params": []
+}
