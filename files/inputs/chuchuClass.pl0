@@ -1,0 +1,6 @@
+class Coche is {
+  var arrancado;
+   function arrancar () {
+      arrancado  = true
+   };
+};
