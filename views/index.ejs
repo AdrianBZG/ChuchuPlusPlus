@@ -9,14 +9,14 @@
     <tr>
       <td>
         <form action="/save" method="post">
-          <textarea id="input" name="input" 
+          <textarea id="input" name="input"
                     autofocus cols = "40" rows = "4">
           </textarea>
           <br/>
         </form>
       </td>
 	            <b>File options:</b><br> Save program to database as
-          <input id="saveas" type="text" name="fname" 
+          <input id="saveas" type="text" name="fname"
                  title="name" pattern="\w+" /><button id="saveProgramButton" type="button">Save</button><button id="cleanDB" type="button">Clean DB</button><br>Load program from file <input type="file" id="examples" /><br><br>
       <td><button id="parse" type="button">Parse code</button></td>
     </tr>
@@ -26,11 +26,13 @@
   </p>
   <div class="output">
 
-<div id="output"></div> <!-- Output goes here! --> 
+<div id="output"></div> <!-- Output goes here! -->
 <br><br><br><br>
 
   </div>
 </div>
+
+<div id="visTree"></div>
 
 <script src="js/codemirror/codemirror.js"></script>
 <link rel="stylesheet" href="css/codemirror.css">
