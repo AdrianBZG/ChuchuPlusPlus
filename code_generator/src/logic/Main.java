@@ -25,5 +25,9 @@ public class Main {
     
     // Load the program using the ProgramHandler
     ProgramHandler.loadProgram();
+    
+    // Show generated code
+    ProgramHandler.showGeneratedCode();
+    
   }
 }
