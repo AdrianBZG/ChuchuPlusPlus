@@ -17,7 +17,7 @@ Chuchu++ is a dynamic type language/grammar, because it'll generate JavaScript c
 ## Chuchu++ Analyzer Phases
 1. Syntactic analysis ([Some features...](https://github.com/AdrianBZG/ChuchuPlusPlus/issues?q=is%3Aissue+label%3Asyntactic))
 2. Semantic analysis ([Some features...](https://github.com/AdrianBZG/ChuchuPlusPlus/issues?q=is%3Aissue+label%3Asemantic))
-3. Code generation phase (([Info here](https://github.com/AdrianBZG/ChuchuPlusPlus/tree/master/code_generator))
+3. Code generation phase ([Info here](https://github.com/AdrianBZG/ChuchuPlusPlus/tree/master/code_generator))
 
 ## Front-End Preview
 
