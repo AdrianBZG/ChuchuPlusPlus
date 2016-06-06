@@ -1,0 +1,7 @@
+function entrenar(musculo) {
+  var potencia = musculo * 2;
+  return potencia;
+}
+
+var a = 3;
+entrenar(a);

@@ -15,6 +15,7 @@ import helpers.ProgramHandler;
 
 public class Main {
   public static final String EXAMPLE_PROGRAM_NAME = "codes\\example1.chuchu";
+  public static final String OUTPUT_FILE_NAME = "output\\output.chuchugenerated";
 
   public static void main(String[] args) {
     // Load the program from file
@@ -28,6 +29,7 @@ public class Main {
     
     // Show generated code
     ProgramHandler.showGeneratedCode();
+    ProgramHandler.saveCodeToFile(OUTPUT_FILE_NAME);
     
   }
 }
