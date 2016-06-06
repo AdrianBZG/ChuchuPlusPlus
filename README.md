@@ -2,7 +2,7 @@
 [![Chuchu++ Logo](http://i.imgur.com/pokEntB.png?1)](#)<br><br>
 Build Status: [![Build Status](https://travis-ci.com/AdrianBZG/ChuchuPlusPlus.svg?token=Yw4nNUiKBAqLw1UVKgoY&branch=master)](https://travis-ci.com/AdrianBZG/ChuchuPlusPlus)
 
-Chuchu++ is a PL0-based grammar that uses PEGjs for parsing it's code and transform it to an AST, after that you're able to generate javascript code using our own Chuchu++ Code Generator (not available yet)
+Chuchu++ is a PL0-based grammar that uses PEGjs for parsing it's code and transform it to an AST, after that you're able to generate javascript code using our own Chuchu++ Code Generator
 
 Please note that development is very early on.
 
@@ -17,12 +17,15 @@ Chuchu++ is a dynamic type language/grammar, because it'll generate JavaScript c
 ## Chuchu++ Analyzer Phases
 1. Syntactic analysis ([Some features...](https://github.com/AdrianBZG/ChuchuPlusPlus/issues?q=is%3Aissue+label%3Asyntactic))
 2. Semantic analysis ([Some features...](https://github.com/AdrianBZG/ChuchuPlusPlus/issues?q=is%3Aissue+label%3Asemantic))
-3. Code generation phase (not yet)
+3. Code generation phase (([Info here](https://github.com/AdrianBZG/ChuchuPlusPlus/tree/master/code_generator))
 
 ## Front-End Preview
 
 Analyzer Preview (0.2)<br>
 <div style="text-align:center">![Analyzer Preview (0.2)](http://i.imgur.com/Z63eLdr.png?1 "Analyzer Preview (0.2)")</div><br>
+<br>
+Code Generator (0.0.1)<br>
+<div style="text-align:center">![Analyzer Preview (0.2)](http://i.imgur.com/Qy0Xrzl.png?1 "Code Generator (0.0.1)")</div><br>
 
 ## HEROKU DEPLOYMENT
 
@@ -64,6 +67,7 @@ Testing: [Click here...](https://chuchuplusplus.herokuapp.com/tests) <br>
 - Event Handling <br>
 - PAAS Deployment (Heroku) <br>
 - Version control + Collaboration (Git) <br>
+- Java (for the Code Generation Phase) <br>
 
 
 ## Running
