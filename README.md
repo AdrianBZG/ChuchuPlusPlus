@@ -102,7 +102,7 @@ Just use the 'gulp' command and the default task will be triggered, then access 
 
 ## Contact the developers
 
-You can contact the developers by sending an email to [arodriba@ull.edu.es](mailto:arodriba@ull.edu.es) and [rudolfcicko2016@gmail.com](mailto:rudolfcicko2016@gmail.com).
+You can contact the developers by sending an email to [arodriba@ull.es](mailto:arodriba@ull.es) and [rudolfcicko2016@gmail.com](mailto:rudolfcicko2016@gmail.com).
 
 ## License
 
