@@ -85,11 +85,11 @@ Just use the 'gulp' command and the default task will be triggered, then access 
 ## DEVELOPERS
 
 ### Adrián Rodríguez Bazaga
-  - Email: arodriba@ull.edu.es
+  - Email: arodriba@ull.es || adrian@qmindgroup.com
   - [Personal page](http://adrianbzg.github.io)
 
 ### Rudolf Cicko
-  - Email: alu0100824780@ull.edu.es
+  - Email: alu0100824780@ull.edu.es || rudolfcicko2016@gmail.com
   - [Personal page](http://alu0100824780.github.io)
 
 ** Link to the subject "Procesadores de Lenguajes" (Language Processors):**
@@ -102,8 +102,8 @@ Just use the 'gulp' command and the default task will be triggered, then access 
 
 ## Contact the developers
 
-You can contact the developers by sending an email to [arodriba@ull.edu.es](mailto:arodriba@ull.edu.es) or using [issues](https://github.com/AdrianBZG/ChuchuPlusPlus/issues)
+You can contact the developers by sending an email to [arodriba@ull.edu.es](mailto:arodriba@ull.edu.es) and [rudolfcicko2016@gmail.com](mailto:rudolfcicko2016@gmail.com).
 
 ## License
 
-Chuchu++ is a Open Source project licensed under [GNU GPLv3](LICENSE).
+Chuchu++ is a Open Source project licensed under [Apache 2.0](LICENSE).
