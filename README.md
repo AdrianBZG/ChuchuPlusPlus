@@ -85,8 +85,8 @@ Just use the 'gulp' command and the default task will be triggered, then access 
 ## DEVELOPERS
 
 ### Adrián Rodríguez Bazaga
-  - Email: arodriba@ull.es || adrian@qmindgroup.com
-  - [Personal page](http://adrianbzg.github.io)
+  - Email: adrian@qmindgroup.com
+  - [Personal page](http://www.adrianbazaga.com/)
 
 ### Rudolf Cicko
   - Email: alu0100824780@ull.edu.es || rudolfcicko2016@gmail.com
@@ -102,7 +102,7 @@ Just use the 'gulp' command and the default task will be triggered, then access 
 
 ## Contact the developers
 
-You can contact the developers by sending an email to [arodriba@ull.es](mailto:arodriba@ull.es) and [rudolfcicko2016@gmail.com](mailto:rudolfcicko2016@gmail.com).
+You can contact the developers by sending an email to [adrian@qmindgroup.com](mailto:adrian@qmindgroup.com) and [rudolfcicko2016@gmail.com](mailto:rudolfcicko2016@gmail.com).
 
 ## License
 
